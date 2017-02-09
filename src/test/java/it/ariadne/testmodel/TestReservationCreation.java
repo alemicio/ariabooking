@@ -100,11 +100,6 @@ public class TestReservationCreation {
 		res1 = new Reservation(r1, u1, new DateTime(2017, 2, 9, 16, 00), new DateTime(2017, 2, 9, 18, 00));
 		res2 = new Reservation(r2, u1, new DateTime(2017, 2, 9, 17, 01), new DateTime(2017, 2, 9, 20, 00));
 		
-		ans1 = s_reservation.reserve(res1);
-		ans2 = s_reservation.reserve(res2);
-		
-		assertEquals(true, ans2);
-		
 	
 	}
 }
