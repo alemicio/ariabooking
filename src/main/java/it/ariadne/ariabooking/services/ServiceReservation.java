@@ -65,7 +65,12 @@ public class ServiceReservation {
 			return true;
 		}
 	}
-	 
+	
+	public void findHole(Reservation res){
+		
+		// TO DO
+		
+	}
 	
 
 }
