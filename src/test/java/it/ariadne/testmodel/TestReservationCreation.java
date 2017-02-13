@@ -9,6 +9,8 @@ import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
+import it.ariadne.ariabooking.dao.history.DaoDelivery;
+import it.ariadne.ariabooking.dao.history.DaoDeliveryMap;
 import it.ariadne.ariabooking.dao.history.DaoReservation;
 import it.ariadne.ariabooking.dao.history.DaoReservationMap;
 import it.ariadne.ariabooking.dao.resources.DaoResourceMap;
@@ -35,6 +37,7 @@ public class TestReservationCreation {
 	private DaoUser 		daoU;
 	private DaoResources 	daoR;
 	private DaoReservation 	daoRes;
+	private DaoDelivery 	daoDev;
 	
 	private ServiceReservation s_reservation;
 	
@@ -61,13 +64,14 @@ public class TestReservationCreation {
 		daoR.save(r3);
 		
 		daoRes = new DaoReservationMap();
+		daoDev = new DaoDeliveryMap();
 	}
 
 	@Test
 	public void testReservationCreation() {
 		Boolean ans1;
 		
-		s_reservation = new ServiceReservation(daoU, daoR, daoRes);
+		s_reservation = new ServiceReservation(daoU, daoR, daoRes, daoDev);
 		
 		res1 = new Reservation(r1, u1, new DateTime(2017, 2, 9, 16, 00), new DateTime(2017, 2, 9, 18, 00));
 		
@@ -80,7 +84,7 @@ public class TestReservationCreation {
 	public void testReservationOverlap() {
 		Boolean ans1, ans2;
 		
-		s_reservation = new ServiceReservation(daoU, daoR, daoRes);
+		s_reservation = new ServiceReservation(daoU, daoR, daoRes, daoDev);
 		
 		res1 = new Reservation(r1, u1, new DateTime(2017, 2, 9, 16, 00), new DateTime(2017, 2, 9, 18, 00));
 		res2 = new Reservation(r2, u1, new DateTime(2017, 2, 9, 17, 01), new DateTime(2017, 2, 9, 20, 00));
@@ -95,7 +99,7 @@ public class TestReservationCreation {
 	public void testReservationOverbooking() {
 		Boolean ans1, ans2;
 		
-		s_reservation = new ServiceReservation(daoU, daoR, daoRes);
+		s_reservation = new ServiceReservation(daoU, daoR, daoRes, daoDev);
 		
 		res1 = new Reservation(r1, u1, new DateTime(2017, 2, 9, 16, 00), new DateTime(2017, 2, 9, 18, 00));
 		res2 = new Reservation(r2, u1, new DateTime(2017, 2, 9, 17, 01), new DateTime(2017, 2, 9, 20, 00));
