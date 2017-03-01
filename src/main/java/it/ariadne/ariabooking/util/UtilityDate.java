@@ -51,7 +51,7 @@ public class UtilityDate {
 				intervalStored = new Interval(resStored.getStart(),resStored.getEnd());
 				
 				while (intervalIn.overlaps(intervalStored)) {
-					firstAvailability
+					
 				}
 				
 			}

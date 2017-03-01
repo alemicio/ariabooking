@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class Vehicle extends Resource implements Serializable {
 
-
 	private static final long serialVersionUID = 1L;
 	
 	// ======================================================================================================== Attributes
@@ -14,12 +13,7 @@ public class Vehicle extends Resource implements Serializable {
 	private int		seats;
 	private String 	fuel;
 	// ======================================================================================================== Constructor
-	public Vehicle(int iD) {
-		super(iD);
-		// TODO Auto-generated constructor stub
-	}
 	public Vehicle(int iD, String plate, String brand, String model, int seats, String fuel) {
-		super(iD);
 		this.plate = plate;
 		this.brand = brand;
 		this.model = model;
@@ -64,4 +58,13 @@ public class Vehicle extends Resource implements Serializable {
 				+ fuel + "]";
 	}
 	
+	@Override
+	public boolean checkConstrain(int c) {
+		if(this.seats > 2){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
 }

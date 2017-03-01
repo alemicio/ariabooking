@@ -13,11 +13,7 @@ public class Room extends Resource implements Serializable{
 	private int capacity;
 	private int desks;
 	// ======================================================================================================== Constructor
-	public Room(int iD) {
-		super(iD);
-	}
 	public Room(int iD, String name, String description, int floor, int capacity, int desks) {
-		super(iD);
 		this.name = name;
 		this.description = description;
 		this.floor = floor;
@@ -61,6 +57,16 @@ public class Room extends Resource implements Serializable{
 	public String toString() {
 		return "Room [name=" + name + ", description=" + description + ", floor=" + floor + ", capacity=" + capacity
 				+ ", desks=" + desks + "]";
+	}
+	
+	@Override
+	public boolean checkConstrain(int c) {
+		if(this.capacity > 20){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	
 }

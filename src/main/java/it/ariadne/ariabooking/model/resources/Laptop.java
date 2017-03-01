@@ -1,8 +1,6 @@
 package it.ariadne.ariabooking.model.resources;
 
-import java.io.Serializable;
-
-public class Laptop extends Resource implements Serializable {
+public class Laptop extends Resource {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -15,11 +13,7 @@ public class Laptop extends Resource implements Serializable {
 	private int 	ram;
 	private int 	screen;
 	// ======================================================================================================== Constructor
-	public Laptop(int iD) {
-		super(iD);
-	}
 	public Laptop(int iD, String brand, String model, String cpu, String gpu, String os, int ram, int screen) {
-		super(iD);
 		this.brand = brand;
 		this.model = model;
 		this.cpu = cpu;
@@ -77,5 +71,17 @@ public class Laptop extends Resource implements Serializable {
 		return "Laptop [brand=" + brand + ", model=" + model + ", cpu=" + cpu + ", gpu=" + gpu + ", os=" + os + ", ram="
 				+ ram + ", screen=" + screen + "]";
 	}
+	@Override
+	public boolean checkConstrain(int c) {
+		
+		if(this.ram > 8){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	
 	
 }

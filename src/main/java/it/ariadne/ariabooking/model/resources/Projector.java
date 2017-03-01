@@ -13,15 +13,10 @@ public class Projector extends Resource implements Serializable {
 	private Boolean short_throw;
 	// ======================================================================================================== Constructor
 	public Projector(int iD, String brand, String model, int resolution, Boolean short_throw) {
-		super(iD);
 		this.brand = brand;
 		this.model = model;
 		this.resolution = resolution;
 		this.short_throw = short_throw;
-	}
-	public Projector(int iD) {
-		super(iD);
-		// TODO Auto-generated constructor stub
 	}
 	// ======================================================================================================== Getter & Setter
 	public String getBrand() {
@@ -54,6 +49,16 @@ public class Projector extends Resource implements Serializable {
 	public String toString() {
 		return "Projector [brand=" + brand + ", model=" + model + ", resolution=" + resolution + ", short_throw="
 				+ short_throw + "]";
+	}
+	
+	
+	@Override
+	public boolean checkConstrain(int c) {
+		if(this.resolution > 1200){
+			return false;
+		}else{
+			return true;
+		}
 	}
 	
 }
